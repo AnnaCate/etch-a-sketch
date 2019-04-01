@@ -1,0 +1,46 @@
+
+html, body {
+    height: 100%;
+}
+
+.refresh {
+    display: block;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.table {
+    height: 100%;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+
+.table #inner{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#inner #container {
+    vertical-align: middle;
+    display: inline-block;
+    width: 480px;
+    height: 480px;
+    border: 1px solid black;
+}
+
+.row {
+    font-size: 0;    
+}
+
+.cell {
+    display: inline-block;
+    background-color: white;
+}
+
+.cell.gray {
+    background-color: black;
+}
+
+
