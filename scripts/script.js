@@ -17,14 +17,14 @@ function createGrid(x) {
         }
         div.appendChild(row);
     }
-    turnGray();
+    turnColor();
 }
 
 // remove blue class
-function removeBlue() {
+function removeColor() {
     let cells = document.querySelectorAll("div.cell");
     for (let i = 0; i < cells.length; i++) {
-        cells[i].classList.remove("blue");
+        cells[i].classList.remove("color");
     } 
 }
 
@@ -32,27 +32,56 @@ function removeBlue() {
 createGrid(16);
 
 // on mouse over, turn cell gray
-function turnGray () {
+function turnColor () {
     let cells = document.querySelectorAll("div.cell");
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener("mouseover", function() {
-        cells[i].classList.add("gray");
+        cells[i].classList.add("color");
         });
     }
 }
 
 // refresh button
 const refresh = document.getElementById('refresh');
-refresh.addEventListener('click', removeBlue);
+refresh.addEventListener('click', removeColor);
 
-refresh.addEventListener('click', () => {
+// new grid button
+const grid = document.getElementById('new');
+grid.addEventListener('click', () => {
     let squares = prompt(
         "How many squares per side do you want on your new grid?", '');
     if (squares) {
         let inner = document.getElementById('inner');
         let container = document.getElementById('container');
         inner.removeChild(container);
+        createGrid(squares);
+   } else if (squares === null) {
+    return;
     }
-    createGrid(squares);
-})
+});
+
+// random colors
+// function getRandomColor() {
+//     let letters = '0123456789ABCDEF';
+//     let color = '#';
+//     for (let i = 0; i < 6; i++) {
+//         color += letters[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+// }
+
+// const colors = document.getElementById('colors');
+// colors.addEventListener('click', () => {
+//     let cells = document.querySelectorAll("div.cell");
+//     for (let i = 0; i < cells.length; i++) {
+//         cells[i].removeEventListener()
+//         cells[i].addEventListener("mouseover", function() {
+//         cells[i].style.color = getRandomColor;
+//         });
+//     }   
+// });
+
+
+
+// fade to black
 
